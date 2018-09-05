@@ -1,10 +1,10 @@
 /* eslint-disable */
 const baseURL = process.env.NODE_ENV === 'development'
     // ? ''
-    ? 'http://api-oa-web.yewifi.com'
+    ? 'https://service.ddnsto.com'
     // ? 'http://oa.pc.yewifi.com'
     : process.env.NODE_ENV === 'testing'
-    ? 'http://api-oa-web.yewifi.com' : 'http://api-oa-web.fapiaoer.cn'
+    ? 'https://service.ddnsto.com' : 'https://service.ddnsto.com'
 
 module.exports = baseURL
 

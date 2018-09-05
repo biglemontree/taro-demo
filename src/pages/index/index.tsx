@@ -3,6 +3,7 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
+import request from '../../utils/request'
 import { add, minus, asyncAdd } from '../../actions/counter'
 
 import './index.styl'
@@ -65,6 +66,14 @@ class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
+    componentWillMount() {
+        request({
+            url: '/littleapp/routers/',
+            header: {
+                
+            }
+        })
+    }
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
