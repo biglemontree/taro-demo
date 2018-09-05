@@ -3,9 +3,9 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
-import request from '../../utils/request'
 import { add, minus, asyncAdd } from '../../actions/counter'
-
+import request from '../../utils/net'
+import {apis} from '../../utils/config'
 import './index.styl'
 
 // #region 书写注意
@@ -66,14 +66,15 @@ class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-    componentWillMount() {
-        request({
-            url: '/littleapp/routers/',
-            header: {
-                
-            }
-        })
-    }
+  componentWillMount () {
+    request({
+      url: apis.getrouters,
+      data: {},
+      hearder: {
+        
+      }
+    })
+  }
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }

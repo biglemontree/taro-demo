@@ -1,8 +1,6 @@
 import axios from 'axios'
 // import appStore from '@/store'
-import baseURL from './baseURL'
-import { getIEVersion } from './util'
-
+const baseURL = 'https://service.ddnsto.com'
 const service = axios.create({
     baseURL,
     method: 'post',
@@ -29,13 +27,6 @@ service.interceptors.request.use(options => {
     }
     // appStore.spinning = true
     console.log('请求参数', config.data)
-
-    // 由于IE9只支持XDomainRequest方式跨域，且它有许多的限制，如：不能加入自定义header，只支持text/plain格式报文等
-    // 所以这里通过代理的方式处理跨域请求
-    const ie = getIEVersion()
-    if (ie > 0 && ie < 10) {
-        config.baseURL = '/api'
-    }
 
     return config
 }, error => Promise.reject(error))
